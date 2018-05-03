@@ -3,6 +3,19 @@
     padding: 0px;
 }
 
+body{
+    background: gray url(./wall.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+#wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
 kbd > button{
     position: absolute;
     bottom: 0px;
@@ -12,6 +25,21 @@ kbd > button{
 
 kbd:hover > button{
     display: inline-block;
+}
+
+kbd > span{
+    /* position:absolute; */
+    /* left: 2px; */
+    /* top: 2px; */
+}
+
+kbd > img{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 4px;
+    bottom: 4px;
+
 }
 
 main{
@@ -24,20 +52,34 @@ main{
 
 kbd{
     position: relative;
-    vertical-align: top;
-    border: solid 1px red;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px #373737;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px #1a1b1c,0 0 0 2px #1f2020,0 3px 0 2px #080808;
     text-transform: uppercase;
-    display: inline-block;
-    width: 2em;
-    height: 2em;
-    margin: 0.1em;
-    font-size: 32px;
+    width:  80px;
+    height: 64px;
+    margin: 0 10px;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #c5c5c5;
+    background: linear-gradient(to bottom, #292929 0%,#111111 100%,#7db9e8 100%);
+}
+
+.row{
+    margin: 16px;
+}
+
+.row:nth-child(3){
+    padding-bottom: 50%;
 }
 
 #main >div:nth-child(2){
-    margin-left: 1em;
+    margin-left: -22px;
 }
 
 #main >div:nth-child(3){
-    margin-left: 2em;
+    margin-left: -80px;
 }

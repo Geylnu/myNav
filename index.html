@@ -57,7 +57,7 @@
                 if(hash[key]){
                     localStorage.setItem('webSiteList',JSON.stringify(hash))
                     var img2 = param.target.previousSibling
-                    img2.src='//'+hash[key]+'/favicon.ico'
+                    img2.src='http://'+hash[key]+'/favicon.ico'
                 }
             }
 
@@ -69,7 +69,7 @@
             }
             var domainA=hash[keys[index][i]]
             if(domainA){
-                img.src='//'+domainA+'/favicon.ico'
+                img.src='http://'+domainA+'/favicon.ico'
             }else{
                 img.src= defaultImgSrc
             }
@@ -87,7 +87,7 @@
         var key = param['key']
         var domain = hash[key]
         if(domain){
-            window.open('//'+domain,'_blank')
+            window.open('http://'+domain,'_blank')
         }
     }
 </script>

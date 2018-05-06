@@ -85,6 +85,7 @@
 
     document.onkeypress = function(param){
         var key = param['key']
+        key.toLowerCase()
         var domain = hash[key]
         if(domain){
             window.open('http://'+domain,'_blank')

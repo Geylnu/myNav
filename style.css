@@ -4,7 +4,7 @@
 }
 
 body{
-    background: gray no-repeat center center;
+    background: gray url(./wall.jpg) no-repeat center center;
     background-size: cover;
 }
 

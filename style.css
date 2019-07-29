@@ -4,7 +4,7 @@
 }
 
 body{
-    background: gray url(./wall.jpg) no-repeat center center;
+    background: gray no-repeat center center;
     background-size: cover;
 }
 
@@ -25,12 +25,6 @@ kbd > button{
 
 kbd:hover > button{
     display: inline-block;
-}
-
-kbd > span{
-    /* position:absolute; */
-    /* left: 2px; */
-    /* top: 2px; */
 }
 
 kbd > img{

@@ -1,57 +1,72 @@
-var keys={
+    let request = new XMLHttpRequest()
+    request.open('GET','http://route.showapi.com/1287-1') //初始化配置  请求方式忽略大小写  默认异步
+    request.onreadystatechange = (e)=>{
+        console.log(request.responseText) //响应内容
+        console.log(request.readyState)
+    }
+    request.send() //发送
+
+
+let keys={
     0: ['q','w','e','r','t','y','u','i','o','p'],
     1: ['a','s','d','f','g','h','j','k','l'],
     2: ['z','x','c','v','b','n','m'],
     length: 3
 }
 
-var hash={
+let hash={
+    a: 'www.acfun.cn',
     q: 'wx.qq.com',
     w: 'weibo.com',
     b: 'bilibili.com',
     x: 'xiedaimala.com',
     g: 'github.com',
+    p: 'www.pixiv.net',
+    z: 'zhihu.com',
+    y: 'youku.com',
+    d: 'www.douyu.com',
+    i: 'iqiyi.com',
 }
 
-var defaultImgSrc='//i.loli.net/2017/11/10/5a05afbc5e183.png'
+let defaultImgSrc='//i.loli.net/2017/11/10/5a05afbc5e183.png'
 
-var hashInLocalStorage=JSON.parse(localStorage.getItem('webSiteList')||'null')
+let hashInLocalStorage=JSON.parse(localStorage.getItem('webSiteList')||'null')
 if(hashInLocalStorage){
     hash=hashInLocalStorage
 }
 
-var index =0
+let index =0
 while(index<keys.length){
-    var div = document.createElement('div')
+    let div = document.createElement('div')
     div.className = 'row'
     main.appendChild(div)
-    for(var i=0;i<keys[index].length;i++){
-        var kbd = document.createElement('kbd')
+    for(let i=0;i<keys[index].length;i++){
+        let kbd = document.createElement('kbd')
         kbd.className= 'key'
 
-        var span = document.createElement('span')
+        let span = document.createElement('span')
         span.textContent=keys[index][i]
 
-        var button = document.createElement('button')
+        let button = document.createElement('button')
         button.id=keys[index][i]
         button.textContent='编辑'
         button.onclick=function(param){
-            var key=param.target.id
+            let key=param.target.id
             hash[key]=prompt('请输入域名')
             if(hash[key]){
                 localStorage.setItem('webSiteList',JSON.stringify(hash))
-                var img2 = param.target.previousSibling
+                let img2 = param.target.previousSibling
                 img2.src='http://'+hash[key]+'/favicon.ico'
             }
         }
 
 
-        var img = document.createElement('img')
+        let img = document.createElement('img')
         img.className = 'icon'
         img.onerror=function(param){
             param.target.src=defaultImgSrc
         }
-        var domainA=hash[keys[index][i]]
+        let domainA=hash[keys[index][i]]
         if(domainA){
             img.src='http://'+domainA+'/favicon.ico'
         }else{
@@ -68,10 +83,10 @@ while(index<keys.length){
 
 
 document.onkeypress = function(param){
-    var key = param['key']
+    let key = param['key']
     key=key.toLowerCase()
     console.log(key)
-    var domain = hash[key]
+    let domain = hash[key]
     if(domain){
         window.open('http://'+domain,'_blank')
     }

@@ -1,8 +1,6 @@
     let request = new XMLHttpRequest()
     request.open('GET','http://route.showapi.com/1287-1') //初始化配置  请求方式忽略大小写  默认异步
     request.onreadystatechange = (e)=>{
-        console.log(request.responseText) //响应内容
-        console.log(request.readyState)
     }
     request.send() //发送
 
@@ -52,7 +50,15 @@ while(index<keys.length){
         button.textContent='编辑'
         button.onclick=function(param){
             let key=param.target.id
-            hash[key]=prompt('请输入域名')
+            let tempstr =prompt('请输入域名')
+            let strArray = tempstr.match(/(?<=(^\s*https?:\/\/)?)[a-z0-9A-Z]+(\.[a-z0-9A-Z]+)+/g)
+            if (strArray){
+                hash[key] = strArray.pop()
+            }else{
+                return 
+            }
+            console.log(hash[key])
+        
             if(hash[key]){
                 localStorage.setItem('webSiteList',JSON.stringify(hash))
                 let img2 = param.target.previousSibling
